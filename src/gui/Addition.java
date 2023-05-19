@@ -14,7 +14,7 @@ public class Addition extends javax.swing.JFrame {
      * Creates new form Adition
      */
     public Addition() {
-        initComponents();
+        initComponents();        
         this.setLocationRelativeTo(null);
         this.setSize(680,480);
         this.setTitle("ADICIONAR");
@@ -31,6 +31,7 @@ public class Addition extends javax.swing.JFrame {
         empleadoWindow.setVisible(true);
         this.setVisible(false);
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +46,8 @@ public class Addition extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(680, 480));
+        setPreferredSize(new java.awt.Dimension(680, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         additionEmployee_btn.setText("EMPLEADO");

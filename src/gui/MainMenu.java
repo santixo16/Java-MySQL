@@ -35,6 +35,12 @@ public class MainMenu extends javax.swing.JFrame {
         consult.setVisible(true);
         this.setVisible(false);
     }
+    
+    public void showAdditionWindow(){
+        Addition addition = new Addition();
+        addition.setVisible(true);
+        this.setVisible(false);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +66,11 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel1.setText("MENÚ PRINCIPAL");
 
         add_btn.setText("ADICIONAR");
+        add_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_btnActionPerformed(evt);
+            }
+        });
 
         modify_btn.setText("MODIFICAR");
 
@@ -132,6 +143,10 @@ public class MainMenu extends javax.swing.JFrame {
     private void logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_btnActionPerformed
         logOut();
     }//GEN-LAST:event_logout_btnActionPerformed
+
+    private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
+        showAdditionWindow();
+    }//GEN-LAST:event_add_btnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
