@@ -56,7 +56,7 @@ public class Addition extends javax.swing.JFrame {
                 additionEmployee_btnActionPerformed(evt);
             }
         });
-        getContentPane().add(additionEmployee_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 111, 49));
+        getContentPane().add(additionEmployee_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 110, 50));
 
         additionClient_btn.setText("CLIENTE");
         additionClient_btn.addActionListener(new java.awt.event.ActionListener() {
