@@ -20,7 +20,7 @@ CREATE TABLE usuarios(
 );
 
 CREATE table empleados(/*CREAREMOS UNA TABLA PARA EL EMPLEADO DONDE TENDREMOS LA INFORMACION DE ESTE */
-    id_empleado INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_empleado INT NOT NULL PRIMARY KEY,
     primer_nombre_empleado VARCHAR(20) NOT NULL,/*SE GUARDA EL PRIMER NOMBRE PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
     segundo_nombre_empleado VARCHAR(20) NOT NULL,/*SE GUARDA EL SEGUNDO NOMBRE PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
     primer_apellido_empleado VARCHAR(20) NOT NULL,/*SE GUARDA EL PRIMER APELLIDO PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
@@ -50,11 +50,11 @@ CREATE TABLE clientes(
 SHOW COLUMNS FROM empleados;/*SE MOSTRARA LA TABLA CON SU CONTENIDO DE EMPLEADOS*/
 SHOW COLUMNS FROM clientes;/*SE MOSTRARA LA TABLA DE CLIENTES DONDE LE PEDIMOS SU INFORMACION*/
 
-INSERT INTO empleados (primer_nombre_empleado, segundo_nombre_empleado, primer_apellido_empleado, 
+INSERT INTO empleados (id_empleado, primer_nombre_empleado, segundo_nombre_empleado, primer_apellido_empleado, 
     segundo_apellido_empleado, telefono_empleado, direccion_empleado, email_empleado, salario_empleado) VALUES
-    ('Santiago', 'Enrique', 'Hernandez', 'Contreras', '5555555', 'direccion 1', 'sehernandezc@sanmateo.edu.co', 2200000),
-    ('David', 'Nicolas', 'Chilito', 'Joaqui', '5545555', 'direccion 2', 'dnchilito@sanmateo.edu.co', 2200000),
-    ('Santiago', '', 'Baquero', 'Hurtado', '22244444', 'Desconocida', 'sbaquero@sanmateo.edu.co', 2200000);
+    (12345, 'Santiago', 'Enrique', 'Hernandez', 'Contreras', '5555555', 'direccion 1', 'sehernandezc@sanmateo.edu.co', 2200000),
+    (123456, 'David', 'Nicolas', 'Chilito', 'Joaqui', '5545555', 'direccion 2', 'dnchilito@sanmateo.edu.co', 2200000),
+    (123457, 'Santiago', '', 'Baquero', 'Hurtado', '22244444', 'Desconocida', 'sbaquero@sanmateo.edu.co', 2200000);
 
 
 SELECT * FROM empleados;
