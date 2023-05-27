@@ -34,6 +34,43 @@ public class AdicionarEmpleado extends javax.swing.JFrame {
         menu.setVisible(true);
     }
     
+    public void AddEmployee(java.awt.event.ActionEvent evt){
+        String idEmpleado = idTextField.getText();
+        String primerNombre = primerNombreField.getText();
+        String segundoNombre = segundoNombreField.getText();
+        String primerApellido = primerApellidoField.getText();
+        String segundoApellido = segundoApellidoField.getText();
+        String telefono = telefonoField.getText();
+        String direccion = direccionField.getText();
+        String email = emailField.getText();
+        String salario = salarioField.getText();
+        
+        try {
+            Connection conn = conexion.conectar();
+
+            PreparedStatement statement = conn.prepareStatement("INSERT INTO empleados (id_empleado, primer_nombre_empleado, segundo_nombre_empleado, primer_apellido_empleado, segundo_apellido_empleado, telefono_empleado, direccion_empleado, email_empleado, salario_empleado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            statement.setString(1, idEmpleado);
+            statement.setString(2, primerNombre);
+            statement.setString(3, segundoNombre);
+            statement.setString(4, primerApellido);
+            statement.setString(5, segundoApellido);
+            statement.setString(6, telefono);
+            statement.setString(7, direccion);
+            statement.setString(8, email);
+            statement.setString(9, salario);
+        
+            statement.executeUpdate();
+
+            conn.close();
+
+            JOptionPane.showMessageDialog(null, "Empleado agregado correctamente.");
+            wipeFields();
+        
+    } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al agregar empleado: " + e.getMessage());
+    }
+}
+    
     public void wipeFields(){
                  idTextField.setText("");
                 primerNombreField.setText("");
@@ -241,7 +278,7 @@ public class AdicionarEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_wipe_btnActionPerformed
 
     private void addition_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addition_btnActionPerformed
-        // TODO add your handling code here:
+        AddEmployee(evt);
     }//GEN-LAST:event_addition_btnActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed

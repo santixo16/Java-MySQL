@@ -20,13 +20,13 @@ CREATE TABLE usuarios(
 );
 
 CREATE table empleados(/*CREAREMOS UNA TABLA PARA EL EMPLEADO DONDE TENDREMOS LA INFORMACION DE ESTE */
-    id_empleado INT NOT NULL PRIMARY KEY,
-    primer_nombre_empleado VARCHAR(20) NOT NULL,/*SE GUARDA EL PRIMER NOMBRE PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
-    segundo_nombre_empleado VARCHAR(20) NOT NULL,/*SE GUARDA EL SEGUNDO NOMBRE PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
-    primer_apellido_empleado VARCHAR(20) NOT NULL,/*SE GUARDA EL PRIMER APELLIDO PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
-    segundo_apellido_empleado VARCHAR(20) NOT NULL,/*SE GUARDA EL SEGUNDO APELLIDO PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
-    telefono_empleado VARCHAR(13) NOT NULL,/*SE SOLICITARA EL NUMERO DEL EMPLEADOS POR POSIBLES LLAMADAS DE ATENCION O INFORMACION*/
-    direccion_empleado CHAR(30) NOT NULL,/*LA ZONA DONDE VIVE NUESTRO EMPLEADO PARA LLAMARLO*/
+    id_empleado BIGINT NOT NULL PRIMARY KEY UNIQUE,
+    primer_nombre_empleado VARCHAR(40) NOT NULL,/*SE GUARDA EL PRIMER NOMBRE PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
+    segundo_nombre_empleado VARCHAR(40) NOT NULL,/*SE GUARDA EL SEGUNDO NOMBRE PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
+    primer_apellido_empleado VARCHAR(74) NOT NULL,/*SE GUARDA EL PRIMER APELLIDO PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
+    segundo_apellido_empleado VARCHAR(40) NOT NULL,/*SE GUARDA EL SEGUNDO APELLIDO PARA MEJORAR EL RENDIMIENTO DE ALMACENAMIENTO*/
+    telefono_empleado BIGINT NOT NULL,/*SE SOLICITARA EL NUMERO DEL EMPLEADOS POR POSIBLES LLAMADAS DE ATENCION O INFORMACION*/
+    direccion_empleado CHAR(40) NOT NULL,/*LA ZONA DONDE VIVE NUESTRO EMPLEADO PARA LLAMARLO*/
     email_empleado VARCHAR(50) NOT NULL,
     salario_empleado FLOAT NOT NULL
 );/*CERRAMOS NUESTRA TABLA DE EMPLEADOS CON SUS CONTENIDOS */
@@ -36,13 +36,13 @@ INSERT INTO usuarios (username, password) VALUES ('santi', 'prueba'),('admin', '
 
 
 CREATE TABLE clientes(
-    id_cliente INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    primer_nombre_cliente VARCHAR(20) NOT NULL,
-    segundo_nombre_cliente VARCHAR(20) NOT NULL,
-    primer_apellido_cliente VARCHAR(20) NOT NULL,
-    segundo_apellido_cliente VARCHAR(20) NOT NULL,
-    telefono_cliente VARCHAR(13) NOT NULL,
-    direccion_cliente VARCHAR(30) NOT NULL,
+    id_cliente BIGINT NOT NULL PRIMARY KEY UNIQUE,
+    primer_nombre_cliente VARCHAR(40) NOT NULL,
+    segundo_nombre_cliente VARCHAR(40) NOT NULL,
+    primer_apellido_cliente VARCHAR(40) NOT NULL,
+    segundo_apellido_cliente VARCHAR(40) NOT NULL,
+    telefono_cliente BIGINT NOT NULL,
+    direccion_cliente VARCHAR(40) NOT NULL,
     correo_electronico VARCHAR(50) NOT NULL,
     fecha_cita DATE NOT NULL
 );
@@ -52,19 +52,19 @@ SHOW COLUMNS FROM clientes;/*SE MOSTRARA LA TABLA DE CLIENTES DONDE LE PEDIMOS S
 
 INSERT INTO empleados (id_empleado, primer_nombre_empleado, segundo_nombre_empleado, primer_apellido_empleado, 
     segundo_apellido_empleado, telefono_empleado, direccion_empleado, email_empleado, salario_empleado) VALUES
-    (12345, 'Santiago', 'Enrique', 'Hernandez', 'Contreras', '5555555', 'direccion 1', 'sehernandezc@sanmateo.edu.co', 2200000),
-    (123456, 'David', 'Nicolas', 'Chilito', 'Joaqui', '5545555', 'direccion 2', 'dnchilito@sanmateo.edu.co', 2200000),
-    (123457, 'Santiago', '', 'Baquero', 'Hurtado', '22244444', 'Desconocida', 'sbaquero@sanmateo.edu.co', 2200000);
+    (12345, 'Santiago', 'Enrique', 'Hernandez', 'Contreras', 5555555, 'direccion 1', 'sehernandezc@sanmateo.edu.co', 2200000),
+    (123456, 'David', 'Nicolas', 'Chilito', 'Joaqui', 5545555, 'direccion 2', 'dnchilito@sanmateo.edu.co', 2200000),
+    (123457, 'Santiago', '', 'Baquero', 'Hurtado', 22244444, 'Desconocida', 'sbaquero@sanmateo.edu.co', 2200000);
 
 
 SELECT * FROM empleados;
 
-INSERT INTO clientes (primer_nombre_cliente, segundo_nombre_cliente, primer_apellido_cliente, 
+INSERT INTO clientes (id_cliente, primer_nombre_cliente, segundo_nombre_cliente, primer_apellido_cliente, 
                       segundo_apellido_cliente, telefono_cliente, direccion_cliente, correo_electronico, fecha_cita) 
-VALUES ('Enrique', 'Leonardo', 'Martinez', 'Correa', '3013247112', 'direccion 1', 'enrique@mail.com', '2022-12-02'),
-       ('Cristo', 'David', 'Manchado', 'Fulano', '3016267412', 'direccion 2', 'cristo@mail.com', '2022-12-03'),
-       ('Abel', 'Fernando', 'Jurado', 'Zabaleta', '3003546114', 'direccion 3', 'abel@mail.com', '2022-12-04'), 
-       ('William', 'Jose', 'Mendoza', 'Uribe', '45528902', 'direccion 4', 'william@mail.com', '2022-12-02');
+VALUES (123, 'Enrique', 'Leonardo', 'Martinez', 'Correa', 3013247112, 'direccion 1', 'enrique@mail.com', '2022-12-02'),
+       (1234, 'Cristo', 'David', 'Manchado', 'Fulano', 3016267412, 'direccion 2', 'cristo@mail.com', '2022-12-03'),
+       (12345, 'Abel', 'Fernando', 'Jurado', 'Zabaleta', 3003546114, 'direccion 3', 'abel@mail.com', '2022-12-04'), 
+       (123456, 'William', 'Jose', 'Mendoza', 'Uribe', 45528902, 'direccion 4', 'william@mail.com', '2022-12-02');
 
 
 SELECT * FROM clientes;

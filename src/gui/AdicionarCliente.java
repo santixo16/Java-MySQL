@@ -38,11 +38,48 @@ public class AdicionarCliente extends javax.swing.JFrame {
         menu.setVisible(true);
     }
     
+    public void AddClient(java.awt.event.ActionEvent evt){  
+        String idCliente = idTextField.getText();
+        String primerNombre = primerNombreField.getText();
+        String segundoNombre = segundoNombreField.getText();
+        String primerApellido = primerApellidoField.getText();
+        String segundoApellido = segundoApellidoField.getText();
+        String telefono = telefonoField.getText();
+        String direccion = direccionField.getText();
+        String email = emailField.getText();
+        String Fecha_de_la_cita = fechaCitaField.getText();
+        
+        try {
+            Connection conn = conexion.conectar();
+
+            PreparedStatement statement = conn.prepareStatement("INSERT INTO clientes (id_cliente, primer_nombre_cliente, segundo_nombre_cliente, primer_apellido_cliente, segundo_apellido_cliente, telefono_cliente, direccion_cliente, correo_electronico, fecha_cita) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            statement.setString(1, idCliente);
+            statement.setString(2, primerNombre);
+            statement.setString(3, segundoNombre);
+            statement.setString(4, primerApellido);
+            statement.setString(5, segundoApellido);
+            statement.setString(6, telefono);
+            statement.setString(7, direccion);
+            statement.setString(8, email);
+            statement.setString(9, Fecha_de_la_cita);
+        
+            statement.executeUpdate();
+
+            conn.close();
+
+            JOptionPane.showMessageDialog(null, "Cliente agregado correctamente.");
+            wipeFields();
+        
+    } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al agregar el cliente: " + e.getMessage());
+    }
+}
+    
     public void wipeFields(){
                 idTextField.setText("");
                 primerNombreField.setText("");
                 segundoNombreField.setText("");
-                segundoApellidoField.setText("");
+                primerApellidoField.setText("");
                 segundoApellidoField.setText("");
                 telefonoField.setText("");
                 direccionField.setText("");
@@ -89,11 +126,8 @@ public class AdicionarCliente extends javax.swing.JFrame {
 
         Cédula.setText("Cédula:");
 
-        idTextField.setBackground(new java.awt.Color(255, 255, 255));
-
         Primer_nombre.setText("Primer nombre:");
 
-        primerNombreField.setBackground(new java.awt.Color(255, 255, 255));
         primerNombreField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 primerNombreFieldActionPerformed(evt);
@@ -102,31 +136,17 @@ public class AdicionarCliente extends javax.swing.JFrame {
 
         Segundo_nombre.setText("Segundo nombre:");
 
-        segundoNombreField.setBackground(new java.awt.Color(255, 255, 255));
-
         Primer_apellido.setText("Primer apellido:");
-
-        primerApellidoField.setBackground(new java.awt.Color(255, 255, 255));
 
         Segundo_apellido.setText("Segundo apellido:");
 
-        segundoApellidoField.setBackground(new java.awt.Color(255, 255, 255));
-
         Teléfono.setText("Teléfono:");
-
-        telefonoField.setBackground(new java.awt.Color(255, 255, 255));
 
         Dirección.setText("Dirección:");
 
-        direccionField.setBackground(new java.awt.Color(255, 255, 255));
-
         Email.setText("Email:");
 
-        emailField.setBackground(new java.awt.Color(255, 255, 255));
-
-        Fecha_de_la_cita.setText("Fecha de la cita:");
-
-        fechaCitaField.setBackground(new java.awt.Color(255, 255, 255));
+        Fecha_de_la_cita.setText("Fecha de la cita (YYYY/MM/DD):");
 
         back_btn.setText("VOLVER");
         back_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -161,43 +181,39 @@ public class AdicionarCliente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Fecha_de_la_cita)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(fechaCitaField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Primer_nombre)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(primerNombreField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Cédula)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Segundo_nombre)
-                                    .addGap(46, 46, 46)
-                                    .addComponent(segundoNombreField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Primer_apellido)
-                                    .addGap(58, 58, 58)
-                                    .addComponent(primerApellidoField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Email)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Dirección)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(direccionField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Teléfono)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Segundo_apellido)
-                                    .addGap(46, 46, 46)
-                                    .addComponent(segundoApellidoField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Fecha_de_la_cita)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                        .addComponent(fechaCitaField, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(Email)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(Cédula)
+                                                .addComponent(Primer_nombre)
+                                                .addComponent(Segundo_nombre)
+                                                .addComponent(Primer_apellido)
+                                                .addComponent(Segundo_apellido)
+                                                .addComponent(Teléfono)
+                                                .addComponent(Dirección))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(primerApellidoField, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(idTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                                                        .addComponent(primerNombreField, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(segundoNombreField, javax.swing.GroupLayout.Alignment.LEADING))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(telefonoField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                                                        .addComponent(segundoApellidoField, javax.swing.GroupLayout.Alignment.LEADING)))
+                                                .addComponent(direccionField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(53, 53, 53))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(wipe_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(103, 103, 103)
@@ -267,7 +283,7 @@ public class AdicionarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_wipe_btnActionPerformed
 
     private void addition_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addition_btnActionPerformed
-        // TODO add your handling code here:
+        AddClient(evt);
     }//GEN-LAST:event_addition_btnActionPerformed
 
     private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed

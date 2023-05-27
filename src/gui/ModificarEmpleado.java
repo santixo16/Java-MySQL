@@ -127,7 +127,7 @@ public class ModificarEmpleado extends javax.swing.JFrame {
           int rowsAffected = stmt.executeUpdate();
           
           if(rowsAffected > 0 ){             
-            JOptionPane.showMessageDialog(null, "Los datos del cliente se han actualizado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Los datos del empleado se han actualizado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             disableFields();
             wipeFields();
           }else{
@@ -137,6 +137,7 @@ public class ModificarEmpleado extends javax.swing.JFrame {
           
         }catch(SQLException ex){
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al procesar la modificacion, por favor intente de nuevo o contacte al administrador", "Error", JOptionPane.ERROR_MESSAGE);            
         }
         
     }
