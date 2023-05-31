@@ -16,7 +16,7 @@ public class Addition extends javax.swing.JFrame {
     public Addition() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setSize(680,480);
+        this.setSize(682, 393);
         this.setTitle("ADICIONAR");
     }
 
@@ -31,6 +31,13 @@ public class Addition extends javax.swing.JFrame {
         empleadoWindow.setVisible(true);
         this.setVisible(false);
     }
+    
+    public void goBack(){
+        this.dispose();
+        MainMenu menu = new MainMenu();
+        menu.setVisible(true);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,50 +47,148 @@ public class Addition extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        additionEmployee_btn = new javax.swing.JButton();
-        additionClient_btn = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        additionClient_btn = new javax.swing.JButton();
+        additionEmployee_btn = new javax.swing.JButton();
+        goBack_btn = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(680, 480));
-        setPreferredSize(new java.awt.Dimension(680, 480));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMaximumSize(new java.awt.Dimension(662, 500));
+        setMinimumSize(new java.awt.Dimension(662, 500));
+        setPreferredSize(new java.awt.Dimension(662, 500));
 
-        additionEmployee_btn.setText("EMPLEADO");
-        additionEmployee_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                additionEmployee_btnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(additionEmployee_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 111, 49));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(682, 393));
 
+        jLabel1.setBackground(new java.awt.Color(102, 153, 255));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("¿QUE DESEA ADICIONAR?");
+
+        additionClient_btn.setBackground(new java.awt.Color(102, 153, 255));
+        additionClient_btn.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        additionClient_btn.setForeground(new java.awt.Color(0, 0, 0));
         additionClient_btn.setText("CLIENTE");
         additionClient_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 additionClient_btnActionPerformed(evt);
             }
         });
-        getContentPane().add(additionClient_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 111, 49));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        jLabel1.setText("¿QUE DESEA ADICIONAR?");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        additionEmployee_btn.setBackground(new java.awt.Color(102, 153, 255));
+        additionEmployee_btn.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        additionEmployee_btn.setForeground(new java.awt.Color(0, 0, 0));
+        additionEmployee_btn.setText("EMPLEADO");
+        additionEmployee_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                additionEmployee_btnActionPerformed(evt);
+            }
+        });
+
+        goBack_btn.setBackground(new java.awt.Color(102, 153, 255));
+        goBack_btn.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        goBack_btn.setForeground(new java.awt.Color(51, 51, 51));
+        goBack_btn.setText("VOLVER");
+        goBack_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goBack_btnActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/documento-35.png"))); // NOI18N
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/usuario48.png"))); // NOI18N
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/proveedor-35.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(additionClient_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(goBack_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(25, 25, 25))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(additionEmployee_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(260, 260, 260)))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(additionEmployee_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(additionClient_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(goBack_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void additionEmployee_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additionEmployee_btnActionPerformed
-        showAdditionEmployeeWindow();
-    }//GEN-LAST:event_additionEmployee_btnActionPerformed
+    private void goBack_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBack_btnActionPerformed
+        goBack();
+    }//GEN-LAST:event_goBack_btnActionPerformed
 
     private void additionClient_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additionClient_btnActionPerformed
         showAdditionClientWindow();
     }//GEN-LAST:event_additionClient_btnActionPerformed
 
+    private void additionEmployee_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additionEmployee_btnActionPerformed
+        showAdditionEmployeeWindow();
+    }//GEN-LAST:event_additionEmployee_btnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton additionClient_btn;
     private javax.swing.JButton additionEmployee_btn;
+    private javax.swing.JButton goBack_btn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

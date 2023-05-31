@@ -28,7 +28,7 @@ public class ModificarCliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(700, 580);
         this.setTitle("MODIFICAR CLIENTE");
-        disableFields();
+        disableFields();        
     }
     
     public void enableFields(){
@@ -40,7 +40,7 @@ public class ModificarCliente extends javax.swing.JFrame {
           segundoApellidoField.setEnabled(true);
           direccionField.setEnabled(true);
           emailField.setEnabled(true);          
-          fechaCitaField.setEnabled(true);
+//          fechaCitaField.setEnabled(true);
           modify_btn.setEnabled(true);          
     }
     
@@ -76,7 +76,7 @@ public class ModificarCliente extends javax.swing.JFrame {
             stmt.setString(1, id_cliente);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()){
-                enableFields();
+                enableFields();                
                 String primerNombre = rs.getString("primer_nombre_cliente");
                 String segundoNombre = rs.getString("segundo_nombre_cliente");
                 String primerApellido = rs.getString("primer_apellido_cliente");
@@ -134,7 +134,7 @@ public class ModificarCliente extends javax.swing.JFrame {
           if(rowsAffected > 0 ){             
             JOptionPane.showMessageDialog(null, "Los datos del cliente se han actualizado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             disableFields();
-            wipeFields();
+//            wipeFields();
           }else{
               disableFields();
             JOptionPane.showMessageDialog(null, "No se pudo actualizar los datos del cliente", "Error", JOptionPane.ERROR_MESSAGE);            
@@ -163,7 +163,6 @@ public class ModificarCliente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         segundoNombreField = new javax.swing.JTextField();
-        fechaCitaField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         primerApellidoField = new javax.swing.JTextField();
@@ -184,61 +183,102 @@ public class ModificarCliente extends javax.swing.JFrame {
         goback_btn = new javax.swing.JButton();
         wipe_btn = new javax.swing.JButton();
         modify_btn = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        fechaCitaField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 153, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("MODIFICAR CLIENTE");
+        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        segundoNombreField.setBackground(new java.awt.Color(204, 204, 204));
+        segundoNombreField.setForeground(new java.awt.Color(0, 0, 0));
         segundoNombreField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 segundoNombreFieldActionPerformed(evt);
             }
         });
 
-        fechaCitaField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaCitaFieldActionPerformed(evt);
-            }
-        });
-
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Primer apellido:");
 
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Fecha cita:");
 
+        primerApellidoField.setBackground(new java.awt.Color(204, 204, 204));
+        primerApellidoField.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Segundo apellido:");
 
+        segundoApellidoField.setBackground(new java.awt.Color(204, 204, 204));
+        segundoApellidoField.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Teléfono:");
 
+        telefonoField.setBackground(new java.awt.Color(204, 204, 204));
+        telefonoField.setForeground(new java.awt.Color(0, 0, 0));
+
+        direccionField.setBackground(new java.awt.Color(204, 204, 204));
+        direccionField.setForeground(new java.awt.Color(0, 0, 0));
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Dirección:");
 
+        emailField.setBackground(new java.awt.Color(204, 204, 204));
+        emailField.setForeground(new java.awt.Color(0, 0, 0));
         emailField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailFieldActionPerformed(evt);
             }
         });
 
+        idLabel.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        idLabel.setForeground(new java.awt.Color(51, 51, 51));
         idLabel.setText("Cedula:");
 
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Email:");
 
+        idTextField.setBackground(new java.awt.Color(204, 204, 204));
+        idTextField.setForeground(new java.awt.Color(0, 0, 0));
         idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idTextFieldActionPerformed(evt);
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Primer nombre:");
 
+        primerNombreField.setBackground(new java.awt.Color(204, 204, 204));
+        primerNombreField.setForeground(new java.awt.Color(0, 0, 0));
         primerNombreField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 primerNombreFieldActionPerformed(evt);
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Segundo nombre:");
 
+        search_btn.setBackground(new java.awt.Color(102, 153, 255));
+        search_btn.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        search_btn.setForeground(new java.awt.Color(0, 0, 0));
         search_btn.setText("BUSCAR");
         search_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,6 +286,9 @@ public class ModificarCliente extends javax.swing.JFrame {
             }
         });
 
+        goback_btn.setBackground(new java.awt.Color(102, 153, 255));
+        goback_btn.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        goback_btn.setForeground(new java.awt.Color(0, 0, 0));
         goback_btn.setText("VOLVER");
         goback_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +296,9 @@ public class ModificarCliente extends javax.swing.JFrame {
             }
         });
 
+        wipe_btn.setBackground(new java.awt.Color(102, 153, 255));
+        wipe_btn.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        wipe_btn.setForeground(new java.awt.Color(0, 0, 0));
         wipe_btn.setText("LIMPIAR");
         wipe_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,6 +306,9 @@ public class ModificarCliente extends javax.swing.JFrame {
             }
         });
 
+        modify_btn.setBackground(new java.awt.Color(102, 153, 255));
+        modify_btn.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        modify_btn.setForeground(new java.awt.Color(0, 0, 0));
         modify_btn.setText("MODIFICAR");
         modify_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,55 +316,76 @@ public class ModificarCliente extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/usuario48.png"))); // NOI18N
+
+        fechaCitaField.setEditable(false);
+        fechaCitaField.setForeground(new java.awt.Color(0, 0, 0));
+        fechaCitaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaCitaFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(176, 176, 176))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                    .addComponent(wipe_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addComponent(modify_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(176, 588, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(segundoNombreField)
-                            .addComponent(primerNombreField)
-                            .addComponent(idTextField)
-                            .addComponent(primerApellidoField)
-                            .addComponent(segundoApellidoField)
-                            .addComponent(telefonoField)
-                            .addComponent(direccionField)
-                            .addComponent(emailField)
-                            .addComponent(fechaCitaField, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(goback_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                                    .addComponent(wipe_btn, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(138, 138, 138)
+                                        .addComponent(modify_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(segundoNombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                                            .addComponent(primerNombreField)
+                                            .addComponent(idTextField)
+                                            .addComponent(primerApellidoField)
+                                            .addComponent(segundoApellidoField)
+                                            .addComponent(telefonoField)
+                                            .addComponent(direccionField)
+                                            .addComponent(emailField)
+                                            .addComponent(fechaCitaField))))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                                .addComponent(goback_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(search_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -350,7 +420,7 @@ public class ModificarCliente extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fechaCitaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
@@ -378,10 +448,6 @@ public class ModificarCliente extends javax.swing.JFrame {
     private void segundoNombreFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_segundoNombreFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_segundoNombreFieldActionPerformed
-
-    private void fechaCitaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCitaFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fechaCitaFieldActionPerformed
 
     private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
         // TODO add your handling code here:
@@ -413,6 +479,10 @@ public class ModificarCliente extends javax.swing.JFrame {
         searchClient(id);
     }//GEN-LAST:event_search_btnActionPerformed
 
+    private void fechaCitaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCitaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechaCitaFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField direccionField;
@@ -423,6 +493,7 @@ public class ModificarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField idTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
